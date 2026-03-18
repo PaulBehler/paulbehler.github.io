@@ -57,6 +57,13 @@
   }
 }
 
+.archive__item-authors {
+  margin-top: 0;
+  margin-bottom: 0.25em;
+  font-size: $type-size-6;
+  color: var(--global-text-color-light);
+}
+
 .archive__item-excerpt {
   margin-top: 0;
   font-size: $type-size-6;
@@ -81,6 +88,12 @@
 
   .archive__item-title {
     text-decoration: underline;
+  }
+}
+
+.archive__item--publications:hover {
+  .archive__item-title {
+    text-decoration: none;
   }
 }
 

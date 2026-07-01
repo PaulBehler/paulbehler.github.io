@@ -256,3 +256,138 @@
     }
   }
 }
+
+/* ==========================================================================
+   Compact publication entries (Sebastian-style)
+   ========================================================================== */
+
+.archive__item--publications {
+  padding-bottom: 1.4em;
+  margin-bottom: 1.4em;
+  border-bottom: 1px solid var(--global-border-color);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .pub-title {
+    margin: 0 0 0.2em;
+    font-size: 0.9em;
+    font-weight: bold;
+    line-height: 1.35;
+  }
+
+  .pub-authors-inline {
+    font-weight: normal;
+    color: #9aa0a5;
+
+    &::before {
+      content: "\00A0";
+    }
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+
+      &:visited { color: inherit; }
+
+      &:hover,
+      &:focus { color: var(--global-text-color); }
+    }
+  }
+
+  .pub-venue {
+    margin: 0;
+    font-size: $type-size-6;
+    font-style: italic;
+
+    strong {
+      font-weight: bold;
+    }
+  }
+
+  .pub-status {
+    margin: 0.25em 0 0;
+    font-size: $type-size-6;
+    color: var(--global-text-color-light);
+  }
+
+  /* Inline, pipe-separated action links */
+  .pub-links {
+    margin: 0.5em 0 0;
+    font-size: $type-size-6;
+    line-height: 1.7;
+
+    a {
+      cursor: pointer;
+      color: var(--global-text-color-light);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+
+      &:visited { color: var(--global-text-color-light); }
+
+      &:hover,
+      &:focus {
+        color: var(--global-text-color);
+        border-bottom-color: currentColor;
+      }
+    }
+
+    .pub-link-item:not(:last-child)::after {
+      content: "\00A0\00B7\00A0\00A0";
+      color: var(--global-border-color);
+    }
+
+    .pub-toggle.active {
+      color: var(--global-text-color);
+      font-weight: bold;
+    }
+  }
+
+  /* Expandable abstract / BibTeX panels */
+  .pub-panel {
+    margin-top: 0.6em;
+  }
+
+  .pub-abstract {
+    font-size: $type-size-6;
+    text-align: justify;
+  }
+
+  .bibtex {
+    position: relative;
+
+    pre {
+      margin: 0;
+      padding: 0.75em 1em;
+      overflow-x: auto;
+      font-size: $type-size-7;
+      background-color: var(--global-code-background-color);
+      border: 1px solid var(--global-border-color);
+      border-radius: $border-radius;
+    }
+
+    code {
+      white-space: pre;
+      background: none;
+      border: none;
+    }
+
+    .bibtex-copy {
+      position: absolute;
+      top: 0.4em;
+      right: 0.4em;
+      padding: 0.15em 0.6em;
+      font-size: $type-size-7;
+      color: var(--global-text-color-light);
+      background-color: var(--global-bg-color);
+      border: 1px solid var(--global-border-color);
+      border-radius: $border-radius;
+      cursor: pointer;
+
+      &:hover,
+      &.copied { color: var(--global-text-color); }
+    }
+  }
+}

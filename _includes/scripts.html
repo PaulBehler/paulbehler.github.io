@@ -1,3 +1,16 @@
 <script type="module" src="{{ base_path }}/assets/js/main.min.js"></script>
 
+<script>
+  // Inline Abstract toggle
+  document.addEventListener("click", function (event) {
+    var toggle = event.target.closest(".pub-toggle");
+    if (!toggle) return;
+    event.preventDefault();
+    var panel = document.getElementById(toggle.getAttribute("data-target"));
+    if (!panel) return;
+    panel.hidden = !panel.hidden;
+    toggle.classList.toggle("active", !panel.hidden);
+  });
+</script>
+
 {% include analytics.html %}

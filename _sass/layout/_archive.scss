@@ -319,7 +319,9 @@
     font-size: $type-size-6;
     line-height: 1.7;
 
-    a {
+    a,
+    .pub-abstract-label {
+      display: inline;
       cursor: pointer;
       color: var(--global-text-color-light);
       text-decoration: none;
@@ -338,56 +340,39 @@
       content: "\00A0\00B7\00A0\00A0";
       color: var(--global-border-color);
     }
-
-    .pub-toggle.active {
-      color: var(--global-text-color);
-      font-weight: bold;
-    }
   }
 
-  /* Expandable abstract / BibTeX panels */
-  .pub-panel {
+  /* Pure-CSS abstract toggle (no JavaScript): clicking the "Abstract" label
+     flips a hidden checkbox that reveals the panel. */
+  .pub-abstract-toggle {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    opacity: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    pointer-events: none;
+  }
+
+  .pub-abstract-panel {
+    display: none;
     margin-top: 0.6em;
+  }
+
+  .pub-abstract-toggle:checked ~ .pub-abstract-panel {
+    display: block;
+  }
+
+  .pub-abstract-toggle:checked ~ .pub-links .pub-abstract-label {
+    color: var(--global-text-color);
+    font-weight: bold;
   }
 
   .pub-abstract {
     font-size: $type-size-6;
     text-align: justify;
-  }
-
-  .bibtex {
-    position: relative;
-
-    pre {
-      margin: 0;
-      padding: 0.75em 1em;
-      overflow-x: auto;
-      font-size: $type-size-7;
-      background-color: var(--global-code-background-color);
-      border: 1px solid var(--global-border-color);
-      border-radius: $border-radius;
-    }
-
-    code {
-      white-space: pre;
-      background: none;
-      border: none;
-    }
-
-    .bibtex-copy {
-      position: absolute;
-      top: 0.4em;
-      right: 0.4em;
-      padding: 0.15em 0.6em;
-      font-size: $type-size-7;
-      color: var(--global-text-color-light);
-      background-color: var(--global-bg-color);
-      border: 1px solid var(--global-border-color);
-      border-radius: $border-radius;
-      cursor: pointer;
-
-      &:hover,
-      &.copied { color: var(--global-text-color); }
-    }
   }
 }

@@ -27,10 +27,14 @@
       <p class="pub-venue"><strong>{{ post.venue }}</strong></p>
     {% endif %}
 
+    {% if stripped_excerpt != "" %}
+      <input type="checkbox" id="abstract-{{ uid }}" class="pub-abstract-toggle" hidden>
+    {% endif %}
+
     {% if stripped_excerpt != "" or post.paperurl or post.workingpaperurl %}
       <p class="pub-links">
         {% if stripped_excerpt != "" %}
-          <span class="pub-link-item"><a href="#" class="pub-toggle" data-target="abstract-{{ uid }}">Abstract</a></span>
+          <span class="pub-link-item"><label for="abstract-{{ uid }}" class="pub-abstract-label">Abstract</label></span>
         {% endif %}
         {% if post.paperurl %}
           <span class="pub-link-item"><a href="{{ post.paperurl }}" target="_blank" rel="noopener noreferrer">Published version</a></span>
@@ -42,7 +46,7 @@
     {% endif %}
 
     {% if stripped_excerpt != "" %}
-      <div id="abstract-{{ uid }}" class="pub-panel" hidden>
+      <div class="pub-abstract-panel">
         <div class="pub-abstract" itemprop="description">{{ post.excerpt | markdownify }}</div>
       </div>
     {% endif %}

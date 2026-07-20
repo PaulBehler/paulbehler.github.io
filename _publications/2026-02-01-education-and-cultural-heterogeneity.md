@@ -1,9 +1,9 @@
 ---
-title: "Education and Culture"
+title: "Does Education Make People WEIRD? Compulsory Schooling and the Convergence of Culture Around the World"
 authors: ""
 collection: publications
-category: work-in-progress
+category: working-papers
 permalink: /publication/2026-02-01-education-and-cultural-heterogeneity
-status: "Manuscript in preparation"
-date: 2026-02-15
+status: "Draft available upon request."
+date: 2026-05-01
 ---
